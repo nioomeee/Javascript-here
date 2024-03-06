@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Arithmetic operators</title>
+    </head>
+    <body>
+        <label for="number1">Enter the 1st number: </label>
+        <input type="number" id="number1">
+        <br><br>
+
+        <label for="number2">Enter the 2nd number: </label>
+        <input type="number" id="number2">
+        <br><br><br>
+
+        <button type="button" onclick="Addition()">Addition</button>
+        <button type="button" onclick="Subtraction()">Subtraction</button>
+        <button type="button" onclick="Multiplication()">Multiplication</button>
+        <button type="button" onclick="Division()">Division</button>
+        <button type="button" onclick="Modulo()">Modulo</button>
+
+        <p id="result">Result: </p>
+
+        <script>
+            function Addition()
+            {
+                let a = parseInt(document.getElementById("number1").value);
+                let b = parseInt(document.getElementById("number2").value);
+
+                let c = a+b;
+                document.getElementById("result").innerText="The addition of "+a+" and "+b+" is "+c+".";
+
+            }
+        </script>
+    </body>
+</html>

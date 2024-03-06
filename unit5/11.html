@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background change</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            transition-duration: 15s;
+        }
+    </style>
+</head>
+<body>
+    <div id="background">
+        <!-- Create the div element. Do the following transitions.
+            • When the page is loaded, the background color should be
+                changed from red to blue in 15 seconds. -->
+    </div>
+
+    <script>
+        window.onload = function() {
+            var x = document.getElementById("background");
+            x.style.backgroundColor = "blue";
+        }
+    </script>
+</body>
+</html>

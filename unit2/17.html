@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <label for="number">Enter Number</label>
+        <input type="number" id="number">
+        <button onclick="Fact()">Calculate Factorial</button>
+        <p id="result"></p>
+
+        <script>
+            function Fact()
+            {
+                let a=parseInt(document.getElementById("number").value);
+
+                if (isNaN(a) || a < 0) 
+                {
+                    alert("Please enter a valid positive integer.");
+                    return;
+                }
+
+                
+                
+
+                let result = factorial(a);
+                //calling the recursive function
+
+                document.getElementById("result").innerText = "Factorial of "+a+" is"+ result;
+                //printing the result
+            }
+
+            function factorial(n)
+            {
+                if(n==0 || n==1)
+                    {
+                        return 1;
+                    }
+                else
+                    {
+                        return n * factorial(n-1);
+                    }
+            }
+        </script>
+    </body>
+</html>

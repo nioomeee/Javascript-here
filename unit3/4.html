@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Complete validation</title>
+    </head>
+    <body>
+        <h1>Regisyttration form</h1>
+        <form>
+            <!-- firstname -->
+            <label for="firstname">First Name: </label>
+            <input type="text" id="firstname"><br><br><br>
+
+            <!-- lastname -->
+            <label for="lastname">Last Name: </label>
+            <input type="text" id="lastname"><br><br><br>
+            
+            <!-- Radio button -->
+            <label for="Gender">Gender: </label> 
+            <input type="radio" id="m" value="Male" class="Gender">Male
+            <input type="radio" id="f" value="Female" class="Gender">Female<br><br><br>
+
+            <!-- Checkbox -->
+            <label for="hobbies">Hobbies: </label>
+            <input type="checkbox" value="Dancing" id="dance">Dancing
+            <input type="checkbox" value="Reading" id="read">reading
+            <input type="checkbox" value="Singcing" id="sing">Singing<br><br><br>
+
+            <!-- Select option / dropdown -->
+            <select name="Country" id="country">
+                <option value="Select" id="sc">Select country</option>                
+                <option value="India" id="ind">India</option>
+                <option value="Bangladesh" id="ban">Bangladesh</option>
+                <option value="Sri Lanka" id="sri">Sri Lanka</option>
+                <option value="Pakistan" id="pak">Pakistan</option>
+                <option value="China" id="chi">China</option>
+            </select><br><br><br>
+            
+            <input type="submit" onclick="Validate(event)"> 
+
+            <p id="demo"></p>
+            
+        </form> 
+
+        <script>
+            function Validate(event)
+            {
+                event.preventDefault();
+
+                var fn = document.getElementById("firstname").value;
+                var ln = document.getElementById("lastname").value;
+                var gen = "", hobby = "", cont = "";
+
+                if(fn === "" || ln === "")
+                {
+                    alert("Please enter your name");
+                    return;
+                }
+
+                // radio buttons
+                if(document.getElementById("m").checked == true)
+                {
+                    gen = document.getElementById("m").value;
+                }
+                else if(document.getElementById("f").checked == true)
+                {
+                    gen = document.getElementById("f").value;
+                }
+                else if(gen ==="")
+                {
+                    alert("Please enter your gender");
+                    return;
+                }
+                
+
+                // checkbox
+                if(document.getElementById("dance").checked==true)
+                {
+                    hobby += document.getElementById("dance").value + " ";
+                }
+                if(document.getElementById("sing").checked==true)
+                {
+                    hobby += document.getElementById("sing").value + " ";
+                }
+                if(document.getElementById("read").checked==true)
+                {
+                    hobby += document.getElementById("read").value + " ";
+                }
+                if(hobby === "")
+                {
+                    alert("Please enter minimum 1 hobby");
+                    return;
+                }
+
+                // Select options
+                if(document.getElementById("sc").selected == true)
+                {
+                    alert("Please enter your country");
+                    return;
+                }
+                else {
+                    cont = document.getElementById("country").value;
+                }
+                
+                
+                document.getElementById("demo").innerHTML = "Name: "+fn+" "+ln+"<br>"+"gender: "+gen+"<br>"+"Hobbies: "+hobby+"<br>"+"Country: "+cont;
+            }
+        </script>
+    </body>
+</html>

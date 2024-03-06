@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Select field</title>
+    </head>
+    <body>
+        <Form>
+            <select name="Country">
+                <option value="Select" id="sc">Select option</option>                
+                <option value="india" id="ind">India</option>
+                <option value="Bangladesh" id="ban">Bangladesh</option>
+                <option value="Sri_Lanka" id="sri">Sri Lanka</option>
+                <option value="Pakistan" id="pak">Pakistan</option>
+                <option value="China" id="chi">China</option>
+            </select>
+            <button type="button" onclick="Validate()">Display</button>
+        </Form>
+        <h4 id="demo"></h4>
+        <script>
+            function Validate()
+            {
+                if(document.getElementById("sc").selected==true)
+                {
+                    alert("Please select your country");
+                    return;
+                }
+                else if(document.getElementById("ind").selected==true)
+                {
+                    document.getElementById("demo").innerHTML="You have selected India";
+                }
+                else if(document.getElementById("ban").selected==true)
+                {
+                    document.getElementById("demo").innerHTML="You have selected Bangladesh";
+                }
+                else if(document.getElementById("sri").selected==true)
+                {
+                    document.getElementById("demo").innerHTML="You have selected Sri Lanka";
+                }
+                else if(document.getElementById("pak").selected==true)
+                {
+                    document.getElementById("demo").innerHTML="You have selected Pakistan";
+                }
+                else if(document.getElementById("chi").selected==true)
+                {
+                    document.getElementById("demo").innerHTML="You have selected China";
+                }
+            }
+        </script>
+    </body>
+</html>

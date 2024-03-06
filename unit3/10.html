@@ -1,0 +1,266 @@
+<!-- Do the following Validations :
+• All the fields are compulsory
+• Name should be of 6 alphabets only
+• Do the validation of Email
+• Password should 10 characters only
+• Phone no should of 10 digits only
+• Zipcode should be of 6 digits only
+• Print all the details when registering the form. (It should be on
+the same page) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(209, 7, 68);
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            background-color: rgb(113, 27, 59);
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            height: 100%;
+            max-height: 800px;
+        }
+        form {
+            margin: 0 auto;
+            width: 80%;
+            height: 80%;
+        }
+    </style>
+</head>
+<body>
+
+    
+        <form>
+           
+            <table>
+                <!-- Name -->
+                <tr>
+                    <td>
+                        <label for="name" placeholder="Your name">Enter your name: </label>
+                    </td>
+                    <td>
+                        <input type="text" id="name">
+                    </td>
+                </tr>        
+            
+            
+                <!-- Email -->
+                <tr>
+                    <td>
+                        <label for="email" placeholder="Your email">Email address: </label>
+                    </td>
+                    <td>
+                        <input type="email" id="email">
+                    </td>
+                </tr>
+                        
+                <!-- Password -->
+                <tr>
+                    <td>
+                        <label for="password">Enter your password: </label>
+                    </td>
+                    <td>
+                    <input type="password" id="password">
+                    </td>
+                </tr>
+                
+        
+                <!-- Phone number -->
+                <tr>
+                    <td>
+                        <label for="phone">Phone no.: </label>
+                    </td>
+                    <td>
+                        <input type="text" id="phone"><br>
+                    </td>
+                </tr>
+                
+                <!-- Gender -->
+                <tr>
+                    <td>
+                        <label for="gender">Gender: </label> 
+                    </td>
+                    <td>
+                        <input type="radio" id="m" value="Male" class="Gender">Male
+                        <input type="radio" id="f" value="Female" class="Gender">Female<br>
+                    </td>
+                </tr>
+                
+                <!-- Language -->
+                <tr>
+                    <td>
+                        <label for="Language">Language: </label>
+                    </td>
+                    <td>
+                        <select name="Language" id="language">
+                            <option value="Select" id="sc">Select language</option>                
+                            <option value="Hindi" id="hin">Hindi</option>
+                            <option value="Gujarati" id="guj">Gujarati</option>
+                            <option value="English" id="eng">English</option>
+                            <option value="French" id="fre">French</option>
+                            <option value="Spanish" id="spa">Spanish</option>
+                        </select><br><br><br>
+                    </td>
+                </tr>
+                
+        
+                <!-- Zip Code -->
+                <tr>
+                    <td>
+                        <label for="zip">Zip code: </label>
+                    </td>
+                    <td>
+                        <input type="text" id="zip">
+                    </td>
+                </tr>
+                
+                
+        
+                <!-- About -->
+                <tr>
+                    <td>
+                        <label for="about">About: </label>
+                    </td>
+                    <td>
+                        <textarea id="about" cols="30" rows="2" placeholder="Write about yourself..."></textarea>
+                    </td>
+                </tr>
+                
+                
+        
+                <!-- Register -->
+                <tr colspan="2">
+                    <td>
+                        <button type="button" onclick="validate();">Register</button>
+                    </td>
+                </tr>
+        
+                </table>
+    
+        </form>
+    
+    
+
+    <p id="demo"></p>
+
+    <script>
+        function validate()
+        {
+            console.log("validating");
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var zip = document.getElementById("zip").value;
+            var phone = document.getElementById("phone").value;
+            var pass = document.getElementById("password").value;
+            var about = document.getElementById("about").value;
+            var gen = "";
+            var lang = "";
+
+
+            // required fields
+            if (name===""|| email===""|| zip===""|| phone===""|| pass===""|| about==="")
+            {
+                alert("All the fields are required");
+                return;
+            }
+
+            // name length
+            if(name.length != 6)
+            {
+                alert("The name should be only 6 characters");
+                return;
+            }
+
+            // email validation
+            var emailformat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            
+            if(!emailformat.test(email))
+            {
+                alert("Enter valid email address");
+                return;
+            }
+
+            // password length
+            if(pass.length!=10)
+            {
+                alert("Password should only be of 10 characters");
+                return;
+            }
+
+            // phone number checking
+            if(isNaN(phone))
+            {
+                alert("The phone number should be in digits only");
+                return;
+            }
+
+            if(phone.length!= 10)
+            {
+                alert("Phone number should be of 10 digits only");
+                return;
+            }
+            
+            // zip code checking
+            if(isNaN(zip))
+            {
+                alert("The zip code should be in digits only");
+                return;
+            }
+            
+            if(zip.length!= 6)
+            {
+                alert("Zip code should be of 6 digits only");
+                return;
+            }
+
+            // Gender radio buttons
+            if(document.getElementsById("m").checked == true)
+            {
+                gen = document.getElementById("m").value;
+            }
+
+            else if(document.getElementById("f").checked == true)
+            {
+                gen = document.getElementById("f").value;
+            }
+            else if(gen == "")
+            {
+                alert("Select your gender");
+                return;
+            }
+
+            // Language select option
+            if(document.getElementById("sc").selected == true)
+            {
+                alert("Please select your language of preference");
+                return;
+            }
+            else
+            {
+                lang = document.getElementById("language").value;
+            }
+
+            document.getElementById("demo").innerHTML = 
+            "Name: "+name+"<br>"+
+            "Email: "+email+"<br>"+
+            "Phone no.: "+phone+"<br>"+
+            "Gender: "+gen+"<br>"+
+            "Language: "+lang +"<br>"+
+            "Zip code: "+zip;
+        }
+    </script>
+</body>
+</html>

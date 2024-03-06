@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple color changes with position changes</title>
+    <style>
+        div{
+            height: 300px;
+            width: 300px;
+            background-color: royalblue;
+            position: relative;
+            animation-name: anim;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes anim {
+            0% {
+                background-color: red;
+                left: 200px;
+                top: 200px;
+            }
+            33% {
+                background-color: green;
+                left: 400px;
+                bottom: 150px;
+            }
+            66% {
+                background-color: blue;
+                right: 600px;
+                top: 300px;
+            }
+            100% {
+                background-color: cyan;
+                right: 800px;
+                bottom: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="Div">
+        <!-- Create the div element. Do the following transitions.
+        • When the page is loaded, the background color should be
+        changed as Red,Green,Blue & Cyan in 15 seconds.
+        • Move div element 5 times in different direction. -->
+    </div>
+   
+</body>
+</html>

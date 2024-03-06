@@ -1,0 +1,65 @@
+<!-- Create a login form. Validate username to be greater
+than 8 characters and password greater than 8
+characters. Also retyped password and password
+should be equal. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Login page</h1>
+
+    <form>
+        <label for="name">Enter User name: </label>
+        <input type="text" id="name"><br><br>
+
+        <label for="password">Enter your password: </label>
+        <input type="password" id="password"><br><br>
+
+        <label for="con-password">Re-enter your password: </label>
+        <input type="password" id="con-password"><br><br>
+
+        <button type="submit" onclick="Validate(event)">Validate</button>
+
+    </form>
+
+    <script>
+        function Validate(event)
+        {
+            event.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var pass = document.getElementById("password").value;
+            var conpass = document.getElementById("con-password").value;
+
+            if(name === "" || pass === "" || conpass ==="")
+            {
+                alert("All the fields must be filled");
+                return;
+            }
+
+            if(name.length <= 8)
+            {
+                alert("The username should be 8 characters or greater");
+                return;
+            }
+
+            if(pass.length <= 8)
+            {
+                alert("The password should be 8 characters or greater");
+                return;
+            }
+
+            if(pass !== conpass)
+            {
+                alert("The passwords don't match");
+                return;
+            }
+
+        }
+    </script>
+</body>
+</html>

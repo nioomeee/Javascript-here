@@ -1,0 +1,53 @@
+<!-- Create a webpage of “GLS University”.
+Do the following validation :-
+1. When the user hover the logo of the university , the image height
+& width should be increased.
+2. When the user clicks or releases on the content, the text color
+should be changed.
+3. When the user moves the cursor in the div, the X & Y axis
+4. should be displayed on the same page. -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GLS University</title>
+    </head>
+    <body>
+        <div onmousemove="Coord(event)" onmouseout="ClearCoord()">
+            <h1 onclick="color(this)">GLS University</h1>
+        <img src="th.jpeg" alt="GLS University logo" onmouseover="bigimg(this)" onmouseout="normalimg(this)">
+        </div>
+        <p id="demo"></p>
+        <script>
+            function bigimg(x)
+            {
+                x.style.height = "250px";
+                x.style.width = "500px";
+            }
+
+            function normalimg(x)
+            {
+                x.style.height = "144px";
+                x.style.width = "276px";
+            }
+
+            function Coord(e)
+            {
+                let x = e.clientX;
+                let y = e.clientY;
+
+                document.getElementById("demo").innerHTML = "Coordinates: "+x+", "+y;
+            }
+
+            function ClearCoord()
+            {
+                document.getElementById("demo").innerHTML = "";
+            }
+            function color(x)
+            {
+                x.style.color = "orange";
+            }
+        </script>
+    </body>
+</html>

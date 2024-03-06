@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <title>Arithmentic functions</title>
+        <style>
+              label{
+                padding-left: 5%;
+              }
+              button{
+                margin-left: 5%;
+              }
+        </style>
+    </head>
+    <body>
+        <label for="number1">Enter the 1st number: </label>
+        <input type="number" id="number1"><br><br>
+        <label for="number2">Enter the 2nd number: </label>
+        <input type="number" id="number2"><br><br><br>
+        <div class="row">
+            <div class="col"><button class="btn btn-primary" onclick="Add()">Addition</button></div>
+            <div class="col"><button class="btn btn-primary" onclick="Sub()">Subtraction</button></div>
+            <div class="col"><button class="btn btn-primary" onclick="Mul()">Multiplication</button></div>
+            <div class="col"><button class="btn btn-primary" onclick="Div()">Division</button></div>
+            <div class="col"><button class="btn btn-primary" onclick="Mod()">Modulo</button></div>
+        </div>
+        <p id="Print"></p>
+
+        <script>
+            function Add() //function Addition
+            {
+                let a = document.getElementById("number1").value;
+                let b = document.getElementById("number2").value;
+                
+                let c = parseInt(a) + parseInt(b);
+
+                document.getElementById("Print").innerText = "Addition is: "+c; 
+
+            }
+            function Sub() //function Subtraction
+            {
+                let a = document.getElementById("number1").value;
+                let b = document.getElementById("number2").value;
+                
+                let c = a-b;
+
+                document.getElementById("Print").innerText = "Subtraction is: "+c; 
+
+            }
+            function Mul() //function Multiplication
+            {
+                let a = document.getElementById("number1").value;
+                let b = document.getElementById("number2").value;
+                
+                let c = a*b;
+
+                document.getElementById("Print").innerText = "Multiplication is: "+c; 
+
+            }
+            function Div() //function Division
+            {
+                let a = document.getElementById("number1").value;
+                let b = document.getElementById("number2").value;
+                
+                let c = a/b;
+
+                document.getElementById("Print").innerText = "Division is: "+c; 
+
+            }
+            function Mod() //function Modulo
+            {
+                let a = document.getElementById("number1").value;
+                let b = document.getElementById("number2").value;
+                
+                let c = parseFloat(a) % parseFloat(b);
+
+                document.getElementById("Print").innerText = "Remainder is: "+c; 
+
+            }
+        </script>
+    </body>
+</html>

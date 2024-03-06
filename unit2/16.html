@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recursion</title>
+    </head>
+    <body>
+        <label for="InputNumber">Input Number: </label>   
+        <input type="number" id="InputNumber">
+        <button type="button" onclick="Input()">Print</button>
+        <p id="printNumbers"></p>
+
+        <script>
+            function Input()
+            {
+                let no = document.getElementById("InputNumber").value;
+                //storing the value from the textbox to a variable no
+
+                if(isNaN(no) || no < 0)
+                {
+                    alert("Please enter a positive integer: ");
+                    return;
+                }
+                
+                no = parseInt(no);
+                //converting the input by the user to int format
+
+                let result = Recursive(no);
+                //calling the function and storing it's value in a variable
+
+                document.getElementById("printNumbers").innerText = "The numbers till "+no+" are: "+result;
+
+            }
+
+            function Recursive(no)
+            {
+                if(no == 0 || no == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                   return Recursive(no-1)+" "+no; 
+                }
+            }
+        </script>
+    </body>
+</html>

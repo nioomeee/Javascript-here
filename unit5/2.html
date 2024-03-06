@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Drawing lines</title>
+        <style>
+            canvas{
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <canvas id="Canvas" width="600px" height="600px" onmousemove="Coords(event)">Your browse</canvas>
+        <p id="demo"></p>
+        <script>
+
+            function Coords(e) {
+                
+                var x = e.clientX;
+                var y = e.clientY;
+                document.getElementById("demo").innerHTML = x + " " + y;
+            }
+            //accessing the canvas
+            var canvas = document.getElementById("Canvas");
+
+            // getting rendering context(2D)
+            var ctx = canvas.getContext("2d");
+
+            //Drawing a line
+            ctx.beginPath(); //beginning of drawing
+            ctx.moveTo(0,0); //moving the line to the starting point of the canvas
+            ctx.lineTo(600,600); //drawing a line to the ending point of the canvas
+            ctx.stroke(); //actually drawing a line
+            ctx.closePath(); //end of drawing
+
+            //drawing another line
+            ctx.beginPath(); //begining another line
+            ctx.moveTo(300, 0);
+            ctx.lineTo(300,600);
+            ctx.stroke();
+
+            //drawing another line
+            ctx.beginPath();
+            ctx.moveTo(0, 600);
+            ctx.lineTo(600, 0);
+            ctx.stroke();
+
+            //drawing another line
+            ctx.beginPath();
+            ctx.moveTo(0, 300);
+            ctx.lineTo(600, 300);
+            ctx.stroke();
+        </script>
+    </body>
+</html>

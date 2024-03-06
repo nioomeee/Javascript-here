@@ -1,0 +1,36 @@
+<!-- Write a program that takes an initial value and increments it by 5, 
+    then multiplies the result by 2, and finally subtracts 10. 
+    Display the final result. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="number">Enter the number: </label>
+    <input type="number" id="number">
+    <br><br>
+    <button onclick="Calculate()">Calculate</button>
+    <br><br>
+
+    <p id="result"></p>
+
+    <script>
+        function Calculate()
+        {
+            let a = parseInt(document.getElementById("number").value);
+
+            a+=5; //incrementing by 5
+
+            a*=2; //multiplying the result by 2
+
+            a-=10; //subtracting 10
+
+            document.getElementById("result").innerText = "Your final answer is: "+a+".";
+        }
+    </script>
+</body>
+</html>

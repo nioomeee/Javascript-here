@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Comparison</title>
+    </head>
+    <body>
+        <label for="number1">Enter 1st number: </label>
+        <input type="number" id="number1">
+        <br><br>
+
+        <label for="number2">Enter the 2nd number: </label>
+        <input type="number" id="number2">
+        <br><br>
+
+        <button onclick="Compare()">Compare</button>
+        <p id="result"></p>
+
+        <script>
+            function Compare()
+            {
+                let a = parseInt(document.getElementById("number1").value);
+                let b = parseInt(document.getElementById("number2").value);
+
+                if(isNaN(a || b) || a < 0 || b < 0)
+                {
+                    alert("Please enter valid numbers");
+                    return;
+                }
+                else
+                {
+                    if(a > b)
+                    {
+                        document.getElementById("result").innerText = a+" is greater than "+b+".";
+                    }
+                    else if(a == b)
+                    {
+                        document.getElementById("result").innerText = a+" is equal to "+b+".";                        
+                    }
+                    else
+                    {
+                    document.getElementById("result").innerText = b+" is greater than "+a+".";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

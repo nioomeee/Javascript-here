@@ -1,0 +1,147 @@
+<!-- Do following validations :-
+1. All the fields are compulsory.
+2. When the user changes the Web server, it will display the alert
+box.
+3. When the user reset the button, the form will be reset.
+4. When the user login in the form, all the information will be
+displayed.
+5. When the user selects some text in username, the background
+color should be changed. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <style>
+        body{
+            font-family:'Courier New', Courier, monospace;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <table>
+            <!-- Username -->
+            <tr>
+                <td>
+                    <label for="name">Username: </label>
+                </td>
+                <td>
+                    <input type="text" onselect="bg(this)">
+                </td>
+            </tr>
+            <!-- Password -->
+            <tr>
+                <td>
+                    <label for="password">Password: </label>
+                </td>
+                <td>
+                    <input type="password" id="password">
+                </td>
+            </tr>
+            <!-- City of employement -->
+            <tr>
+                <td>
+                    <label for="city">City of employement: </label>
+                </td>
+                <td>
+                    <input type="text" id="city">
+                </td>
+            </tr>
+            <!-- Web server -->
+            <tr>
+                <td>
+                    <label for="webservers">Web server: </label>
+                </td>
+                <td>
+                    <select id="Webservers" id="webservers" onchange="Alert(this)">
+                        <option value="sc">--Choose a server--</option>
+                        <option value="ApacheTomcat">Apache Tomcat</option>
+                        <option value="Cherokee">Cherokee</option>
+                        <option value="Jigsaw">Jigsaw</option>
+                        <option value="Caddy">Caddy</option>
+                        <option value="lighttpd">lighttpd</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Specify your role -->
+            <tr>
+                <td>
+                    <label for="role">Please specify your role: </label>
+                </td>
+                <td>
+                    <ul style="list-style: none;">
+                        <li>
+                            <input type="radio" name="role" value="admin">Admin
+                        </li>
+                        <li>
+                            <input type="radio" name="role" value="manager">Manager
+                        </li>
+                        <li>
+                            <input type="radio" name="role" value="engineer">Engineer
+                        </li>
+                        <li>
+                            <input type="radio" name="role" value="Guest">Guest                            
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+
+            <!-- Single Sign-on to the following -->
+            <tr>
+                <td>
+                    <label for="sign">Single Sign-on to the following: </label>
+                </td>
+                <td>
+                    <ul style="list-style: none;">
+                        <li>
+                            <input type="checkbox" name="sign" id="mail">Mail
+                        </li>
+                        <li>
+                            <input type="checkbox" name="sign" id="payroll">Payroll
+                        </li>
+                        <li>
+                            <input type="checkbox" name="sign" id="service">Service
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            
+            <!-- buttons -->
+            <tr>
+                <td></td>
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button style="background-color: white; 
+                    color: black;
+                    border: 1px blue solid;
+                    border-radius: 5px;">
+                        Login
+                    </button>&nbsp;
+                    <input type="reset" value="Reset" onclick="Reset(event)"
+                    style="background-color: white; 
+                    color: black;
+                    border: 1px blue solid;
+                    border-radius: 5px;">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+<script>
+    function Alert(x){
+        alert(x.value);
+    }
+    function bg(x){
+        x.style.background = "pink"; 
+    }
+    
+</script>
+</html>

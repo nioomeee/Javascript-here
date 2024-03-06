@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rectangle</title>
+        <style>
+            canvas{
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <canvas id="Canvas" width="600px" height="600px"></canvas>
+
+        <script>
+            var canvas = document.getElementById("Canvas");
+            var ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.rect(66, 69, 400, 200); //x, y, width, height
+            ctx.stroke();
+            ctx.closePath();
+        </script>
+    </body>
+</html>

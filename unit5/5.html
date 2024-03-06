@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smiley with borders</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas onmousemove="Coords(event)" id="Canvas" height="600px" width="800px;">Your browser doesn't support canvas</canvas>
+    <p id="demo"></p>
+
+    <script>
+        function Coords(e)
+        {
+            x = e.clientX;
+            y = e.clientY;
+
+            document.getElementById("demo").innerHTML = x + " " + y;
+        }
+
+        var canvas =  document.getElementById("Canvas");
+
+        var ctx = canvas.getContext('2d');
+
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = 'red';
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.arc(400, 300, 250, 0, 2*Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.arc(308, 222, 50, 0, 2*Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.arc(508, 222, 50, 0, 2*Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(328, 222, 30, 0, 2*Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(528, 222, 30, 0, 2*Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = 'purple';
+        ctx.fillStyle = "aqua";
+        ctx.beginPath();
+        ctx.arc(400, 350, 50, 0, 2*Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = "transparent";
+        ctx.beginPath();
+        ctx.arc(400, 300, 200, 0, Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+    </script>
+
+</body>
+</html>

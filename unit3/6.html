@@ -1,0 +1,91 @@
+<!-- Write a JavaScript that validates fields related to Employee Details as
+Name, Age, Department, Designation, Salary, and No. Of Working
+Days.
+• Validate fields for blank values.
+• Age must be greater than 18
+• No. Of Working days >25, salary = 10000
+• No of working days<25, salary=8000. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Employee Details</h1>
+    <form>
+        <label for="name">Enter your name: </label>
+        <input type="text" id="name"><br><br>
+
+        <label for="age">Enter your age: </label>
+        <input type="number" id="age"><br><br>
+
+        <label for="department">Enter your department: </label>
+        <input type="text" id="department"><br><br>
+
+        <label for="deignation">Enter your Designation: </label>
+        <input type="text" id="designation"><br><br>
+
+        <label for="working">Enter your working days: </label>
+        <input type="number" id="working"><br><br>  
+        
+        <p id="salary"></p>
+
+        <button type="submit" onclick="Validate(event)">Validate</button>
+    </form>
+
+    <script>
+        function Validate(event)
+        {
+            event.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            var dep = document.getElementById("department").value;
+            var des = document.getElementById("designation").value;
+            var days = document.getElementById("working").value;
+            
+            if(name == "" || age === "" || dep === "" || des === "" || days === "")
+            {
+                alert("Fill all the fields");
+                return;
+            }
+
+            if(!isNaN(name) || !isNaN(dep) || !isNaN(des))
+            {
+                alert("Fill the fields properly");
+                return;
+            }
+
+            if(isNaN(age))
+            {
+                alert("The age should be only in numbers");
+                return;
+            }
+
+            if(age < 18)
+            {
+                alert("Age should be greater than 18");
+                return;
+            }
+
+            if(isNaN(days))
+            {
+                alert("The no. of working days should be only in numbers");
+                return;
+            }
+
+            if(days > 25)
+            {
+                document.getElementById("salary").innerHTML = "Salary: "+10000;
+            }
+            else if(days < 25)
+            {
+                document.getElementById("salary").innerHTML = "Salary: "+8000;
+            }
+            
+        }
+    </script>
+</body>
+</html>

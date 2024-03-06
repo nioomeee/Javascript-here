@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Smiley face</title>
+        <style>
+            canvas{
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <canvas id="Canvas" width="600px" height="600px" onmousemove="Coords(event)"></canvas>
+        <p id="demo"></p>
+
+        <script>
+
+            function Coords(e)
+            {
+                let x = e.clientX;
+                let y = e.clientY;
+
+                document.getElementById("demo").innerHTML = x + " " + y;
+            }
+            // accessing the canvas
+            var canvas = document.getElementById("Canvas");
+
+            //rendering the context
+            var ctx = canvas.getContext("2d");
+
+            ctx.beginPath();
+
+            ctx.arc(432, 313, 280, 0, 2 * Math.PI); 
+
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+            ctx.closePath(); 
+
+            ctx.beginPath();
+            ctx.arc(324, 201, 20, 0, 2  * Math.PI);
+            ctx.stroke();
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.closePath();
+
+            ctx.beginPath();
+            ctx.arc(580, 201, 20, 0, 2  * Math.PI);
+            
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.closePath();
+
+            ctx.strokeStyle = "orange";
+            ctx.lineWidth = 10;
+            ctx.beginPath();
+            ctx.arc(451, 372, 150, 0, Math.PI);
+            ctx.stroke();
+            ctx.endPath();
+        </script>
+    </body>
+    </html>

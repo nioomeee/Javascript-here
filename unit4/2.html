@@ -1,0 +1,50 @@
+<!-- Do following validations :-
+1. When the page is loaded, alert box will be displayed.
+2. Username & Password fields are compulsory.
+3. When user clicks on username field, the background color
+should be changed.
+4. When user lost focus on password field, the alert box is
+displayed that “Please click on Login button”. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    <h1 style="text-align: center; opacity: 50%;">Log In</h1>
+    <form>
+        <input type="text" placeholder="Username" id="username" onclick="bg(this)" style="opacity: 50%;"><br><br>
+
+        <input type="password" id="pass" onblur="login(this)" placeholder="Password" style="opacity: 50%;"><br><br>
+        
+        <input type="submit" onclick="Validate(event)" value="Login" style="padding-left: 50px; padding-right: 50px; background-color: rgb(0, 136, 255); color: white; font-weight: bold; border: 1px solid black;">
+    </form>
+
+    <script>
+        window.onload = alert("Your page is loaded");
+        function Validate(event)
+        {
+            event.preventDefault();
+            var un = document.getElementById("username").value;
+            var pass = document.getElementById("pass").value;
+
+            if(un === "" || pass === "")
+            {
+                alert("Please enter the required fields");
+                return;
+            }
+        }
+        function bg(x)
+        {
+            x.style.background = 'orange';
+        }
+        function login(x)
+        {
+            alert("Please click on login button");
+            return;
+        }
+    </script>
+</body>
+</html>

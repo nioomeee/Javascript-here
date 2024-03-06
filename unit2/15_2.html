@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="StudentInfo"></p> 
+
+    <script>
+        let Student = 
+        {
+            firstname : prompt("Enter your first name"),
+            lastname: prompt("Enter your last name"),
+            rollno: prompt("Enter your rollno"),
+            mark1: prompt("Enter Science marks"),
+            mark2: prompt("Enter Maths marks: "),
+            mark3: prompt("Enter Computer marks: ")
+        };
+        let StudenInfo = document.getElementById("StudentInfo");
+        StudentInfo.innerText = "Student_Data: \n"+
+        "First Name:"+Student.firstname + "\n"+
+        "Last Name: "+Student.lastname + "\n"+
+        "Roll Number: "+Student.rollno + "\n"+
+        "Mark 1: "+Student.mark1 + "\n"+
+        "Mark 2: "+Student.mark2 + "\n"+
+        "Mark 3: "+Student.mark3 + "\n";
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign up</title>
+        <style>
+            body{
+                background-color: rgba(2, 4, 64, 0.76);
+                color: yellow;
+            }
+            td{
+                padding: 10px;
+            }
+
+            .text{
+                width: calc(100% - 20px);
+            }
+
+        </style>
+    </head>
+    <body>
+        <p style="text-align: left; 
+        background-color: orange; 
+        margin: 0;">Sign-up</p><br>
+        <form style="height: 100%; 
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;">
+            <table style="width: 100%;">
+
+                <!-- First Name -->
+                <tr>
+                    <td>
+                        <label>First Name: </label>
+                    </td>
+                    <td>
+                        <input type="text" id="firstname" placeholder="Enter First Name" class="text">
+                    </td>
+                </tr>
+              
+                <!-- Last Name -->
+                <tr>
+                    <td>
+                        <label>Last Name: </label>
+                    </td>
+                    <td>
+                        <input type="text" id="lastname" placeholder="Enter Last Name" class="text">
+                    </td>
+                </tr>
+
+                <!-- Screen Name -->
+                <tr>
+                    <td>
+                        <label>Screen Name: </label>
+                    </td>
+                    <td>
+                        <input type="text" id="screenname" placeholder="Enter Screen Name" class="text">
+                    </td>
+                </tr>
+
+                <!-- Dob -->
+                <tr>
+                    <td>
+                        <label >Date of Birth: </label>
+                    </td>
+                    <td>
+                        <select name="Month" id="month">
+                        <option id="jan">January</option>
+                        <option id="feb">February</option>
+                        <option id="mar">March</option>
+                        <option id="apr">April</option>
+                        <option id="may">May</option>
+                        <option id="jun">June</option>
+                        <option id="jul">July</option>
+                        <option id="aug">August</option>
+                        <option id="sep">September</option>
+                        <option id="oct">October</option>
+                        <option id="nov">November</option>
+                        <option id="dec">December</option>
+                        </select>&nbsp;&nbsp;
+
+                        <input type="number" id="date" min="1" max="31">&nbsp;&nbsp;
+
+                        <input type="number" id="year" min="1900" max="2024">&nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Gender">Gender: </label></td>
+                    <td>
+                        <input type="radio" id="m" value="Male" class="Gender">Male
+                        <input type="radio" id="f" value="Female" class="Gender">Female<br><br><br>
+                    </td>
+                </tr>
+
+                <!-- Country -->
+                <tr>
+                    <td>
+                        <label for="Country">Country: </label>
+                    </td>
+                    <td>
+                        <select name="Country" class="text">
+                            <option value="Select" id="sc">Select country</option>                
+                            <option value="india" id="ind">India</option>
+                            <option value="Bangladesh" id="ban">Bangladesh</option>
+                            <option value="Sri_Lanka" id="sri">Sri Lanka</option>
+                            <option value="Pakistan" id="pak">Pakistan</option>
+                            <option value="China" id="chi">China</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <!-- Email -->
+                <tr>
+                    <td>
+                        <label for="email">Email: </label>
+                    </td>
+                    <td>
+                        <input type="email" id="email" placeholder="Enter email" class="text">
+                    </td>
+                </tr>
+
+                <!-- Phone -->
+                <tr>
+                    <td>
+                        <label for="phone">Phone no.: </label>
+                    </td>
+                    <td>
+                        <input type="text" id="phone" placeholder="Enter phone" class="text">
+                    </td>
+                </tr>
+
+                <!-- Password -->
+                <tr>
+                    <td>
+                        <label for="pass">Password: </label>
+                    </td>
+                    <td>
+                        <input type="password" id="pass" class="text">
+                    </td>
+                </tr>
+
+                <!-- Confirm password -->
+                <tr>
+                    <td>
+                        <label for="conpass">Confirm Password: </label>
+                    </td>
+                    <td>
+                        <input type="password" id="conpass" class="text">
+                    </td>
+                </tr>
+  
+                <tr>
+                        <td></td>
+                        <td>
+                            <input type="checkbox" id="tc">I agree to the Terms of Use
+                        </td>
+                    </tr>
+            </table>
+            <div style="background-color: orange; position: fixed; bottom: 0; height:fit-content; width:100%; text-align: right;">
+            <input type="submit" style="background-color: green; border-radius: 10%; margin-left: 10px;" onclick="Validate(event)">&nbsp;&nbsp;&nbsp;
+            <input type="reset" value="cancel" style="background-color: red; border-radius: 10%; margin-left: 10px;">
+            </div>
+            <p id="demo"></p>
+        </form>
+
+        <script>
+            function Validate(event)
+            {
+                event.preventDefault();
+
+                
+                var fn = document.getElementById("firstname").value;
+                var ln = document.getElementById("lastname").value;
+                var sn = document.getElementById("screenname").value;
+                var pass = document.getElementById("pass").value;
+                var confirm = document.getElementById("conpass").value;
+                var gen = "", hobby="", cont = "";
+                var mon = document.getElementById("month").value;
+                var date = document.getElementById("date").value;
+                var year = document.getElementById("year").value;
+                var em = document.getElementById("email").value;
+                var ph = document.getElementById("phone").value;
+
+                if(fn === "" || ln === "" || sn ==="" || pass === "" || confirm === "" ||  mon === "" || date === "" || year === "" || em === "" || ph === "")
+                {
+                    alert("Please enter all the fields");
+                    return;
+                }
+
+                if(!isNaN(fn) || !isNaN(ln))
+                {
+                    alert("Name should only be in alphabets");
+                    return;
+                }
+
+                // Email
+                var emailformat = /^[a-zA-z0-9,._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; // /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                if(!emailformat.test(em))
+                {
+                    alert("Enter valid email address");
+                    return;
+                }
+
+                // Phone number
+                if(isNaN(ph))
+                {
+                    alert("Phone number should digits only");
+                    return;
+                }
+                else if(ph.length != 10)
+                {
+                    alert("Phone number should only be of 10 digits");
+                    return;
+                }
+
+                // Password
+                if(pass != confirm)
+                {
+                    alert("The passwords don't match");
+                    return;
+                }
+
+                // radio buttons
+                if(document.getElementById("m").checked == true)
+                {
+                    gen = document.getElementById("m").value;
+                }
+                else if(document.getElementById("f").checked == true)
+                {
+                    gen = document.getElementById("f").value;
+                }
+                else if(gen ==="")
+                {
+                    alert("Please enter your gender");
+                    return;
+                }
+
+                // country
+                if(document.getElementById("sc").selected==true)
+                {
+                    alert("Please select your country");
+                }
+                else if(document.getElementById("ind").selected==true)
+                {
+                    cont = document.getElementById("ind").value;
+                }
+                else if(document.getElementById("ban").selected==true)
+                {
+                    cont = document.getElementById("ban").value;
+                }
+                else if(document.getElementById("sri").selected==true)
+                {
+                    cont = document.getElementById("sri").value;
+                }
+                else if(document.getElementById("pak").selected==true)
+                {
+                    cont = document.getElementById("pak").value;
+                }
+                else if(document.getElementById("chi").selected==true)
+                {
+                    cont = document.getElementById("chi").value;
+                }
+
+                // T&C
+                if(document.getElementById("tc").checked === false)
+                {
+                    alert("You have not agreed to our terms of use");
+                    return;
+                }
+
+                // displaying
+                document.getElementById("demo").innerHTML = "Name: "+fn+" "+ln+"<br>"+"Screen Name: "+sn+"<br>"+"Date of birth: "+mon+ " "+date+" "+year+" "
+                +"<br>"+ "Country: "+cont+"<br>"+"Email: "+em+"<br>"+ "Phone: "+ph;
+
+            }
+        </script>
+    </body>
+</html>

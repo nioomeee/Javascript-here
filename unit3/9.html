@@ -1,0 +1,65 @@
+<!-- Create a JavaScript that accepts Student Details as Name, Semester,
+Marks of three subjects.
+• Validate marks field to contain numbers only.
+• Name contains only character.
+• Calculate total and average to display results properly. -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student detail</title>
+    </head>
+    <body>
+        <h1>Student detail form</h1>
+        <form>
+            <label for="name">Name: </label>
+            <input type="text" id="name"><br><br>
+
+            <label for="semester">Semester: </label>
+            <input type="number" id="semester" min="1" max="10"><br><br>
+
+            <label for="clang">C language: </label>
+            <input type="number" id="clang" min="0" max="100"><br><br>
+
+            <label for="dhmtl">DHTML: </label>
+            <input type="number" min="0" max="100" id="dhtml"><br><br>
+
+            <label for="dbms">DBMS: </label>
+            <input type="number" min="0" max="100" id="dbms"><br><br>
+
+            <button type="button" onclick="Validate()">Submit</button><br><br>
+
+            <p id="result"></p>
+        </form>
+
+        <script>
+            function Validate()
+            {
+                var a = parseFloat(document.getElementById("clang").value);
+                var b = parseFloat(document.getElementById("dhtml").value);
+                var c = parseFloat(document.getElementById("dbms").value);
+
+                if(isNaN(a) || isNaN(b) || isNaN(c))
+                {
+                    alert("Marks should be numbers only");
+                    return;
+                }
+
+                if(!isNaN(document.getElementById("name").value))
+                {
+                    alert("Name should only be in characters");
+                    return;
+                }
+
+                var sum = a + b + c;
+
+                var avg = sum / 300;
+
+                var percentage = avg* 100;
+
+                document.getElementById("result").innerHTML = "Your practical percentage is: "+percentage.toFixed(2)+"%.";
+            }
+        </script>
+    </body>
+</html>

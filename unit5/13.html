@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple color changes</title>
+    <style>
+        div{
+            background-color: yellow;
+            color: yellow;
+            transition: 10s ease;
+            height: 300px;
+            width: 300px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="Div">
+        <!-- Create the div element. Do the following transitions.
+        • When the page is loaded, the background color should be
+        changed as Red,Green,Blue & Cyan in 10 seconds. -->
+    </div>
+    <script>
+        window.onload = function() {
+            var div = document.getElementById("Div");
+            var colors = ["red", "green", "blue", "cyan"]; //array of colors
+            var i = 0; //index of the color
+
+            function changeColor(){
+                div.style.backgroundColor = colors[i];
+                i = (i + 1) % colors.length; //moving to the next color in the array
+                setTimeout(changeColor, 10000);
+            }
+
+            setTimeout(changeColor, 0); //changing color immediately the page is loaded
+
+        }
+
+    </script>
+</body>
+</html>

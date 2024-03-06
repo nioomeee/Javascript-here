@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive numbers</title>
+</head>
+<body>
+    <label for="number">Input Number: </label>
+    <input type="number" id="number">
+    <br><br>
+
+    <button onclick="CalculateFactorial()">Factorial</button>
+    
+    <script>
+        function CalculateFactorial()
+        {
+            let a = document.getElementById("number").value;
+
+            if(isNaN(a) || a < 0)
+            {
+                alert("Please enter valid numbers");
+                return;
+            }
+            else
+            {
+                let no = parseInt(a);
+
+                let result = Factorial(no);
+
+                document.write(result);
+            }
+
+            function Factorial(no)
+            {
+                if(no == 0 || no == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return no * Factorial(no-1);
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>

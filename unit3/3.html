@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student</title>
+    </head>
+    <body>
+        <h1>Student deatil form</h1>
+        <form>
+            <label for="firstname">First Name: </label>
+            <input type="text" id="firstname"><br><br><br>
+
+            <label for="lastname">Last Name: </label>
+            <input type="text" id="lastname"><br><br><br>
+
+            <label for="address">Address: </label>
+            <textarea id="address" cols="30" rows="2"></textarea><br><br><br>
+            
+            <label for="phone">Phone no.: </label>
+            <input type="text" id="phone"><br><br><br>
+
+            <button type="submit" onclick="Validate(event)">Submit</button> 
+        </form>
+        <script>
+            function Validate(event)
+            {
+                event.preventDefault();
+
+                var fn = document.getElementById("firstname").value;
+                var ln = document.getElementById("lastname").value;
+                var add = document.getElementById("address").value;
+                var ph = document.getElementById("phone").value;
+
+                if (fn === "" || ln === "" || add === "" || ph === "")
+                {
+                    alert("Please enter all the fields");
+                    return;
+                }
+
+                else if(isNaN(ph))
+                {
+                    alert("The phone number should be in digits only");
+                    return;
+                }
+
+                else if(ph.length != 10)
+                {
+                    alert("Phone number should be 10 digits only");
+                    return;
+                }
+    
+            }
+        </script>
+    </body>
+</html>
